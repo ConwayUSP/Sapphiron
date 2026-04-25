@@ -1,16 +1,16 @@
 # Capítulo 02: Herança e Polimorfismo
 
-XXXXXXXXXXXXXXXXXX
+## 2.2 Polimorfismo
 
-## 2.3 Como sobrescrever métodos 
+## 2.3 Como sobrescrever métodos
 
 Quando uma classe herda de outra, ela recebe todos os seus atributos e métodos. Mas e quando o comportamento herdado não é adequado para a classe filha? É aí que entram os **métodos virtuais**.
 
-Imagine um RPG com diferentes classes de personagens: todos podem atacar, mas a forma de executar o ataque varia completamente. Um Guerreiro desfere golpes físicos com sua espada, um Mago lança feitiços consumindo mana, e um Arqueiro dispara flechas à distância. 
+Imagine um RPG com diferentes classes de personagens: todos podem atacar, mas a forma de executar o ataque varia completamente. Um Guerreiro desfere golpes físicos com sua espada, um Mago lança feitiços consumindo mana, e um Arqueiro dispara flechas à distância.
 
 Se simplesmente herdarmos um método `atacar()` sem nenhum mecanismo especial, todos os personagens executarão o mesmo ataque, o que claramente não faria sentido para um jogo desse tipo.
 
-Para lidar com situações como essa, utilizamos a **sobrescrita de métodos** (*override*). Ela consiste em redefinir, na classe derivada, uma função que já foi declarada na classe base, permitindo que cada herói execute sua ação de forma única.
+Para lidar com situações como essa, utilizamos a **sobrescrita de métodos** (_override_). Ela consiste em redefinir, na classe derivada, uma função que já foi declarada na classe base, permitindo que cada herói execute sua ação de forma única.
 
 Para que o C++ entenda que um método pode ser substituído e, mais importante, para que o polimorfismo funcione, precisamos de duas palavras-chave:
 
@@ -64,8 +64,8 @@ int main() {
     // Criamos ponteiros do tipo Personagem (a classe base)
     Personagem* p1 = &gladiador;
     Personagem* p2 = &mestre;
-    
-    p1->atacar(); 
+
+    p1->atacar();
     p2->atacar();
 
     return 0;
@@ -102,7 +102,7 @@ public:
         std::cout << nome << " realiza um ataque basico!\n";
     }
 
-    virtual ~Personagem() {} 
+    virtual ~Personagem() {}
 };
 
 // Classes Derivadas
@@ -153,7 +153,7 @@ Agora sim! Ao adicionar `virtual` na classe base e `override` nas filhas, o C++ 
 
 Isso é a ligação dinâmica em ação: o compilador, que antes era "míope" e só enxergava o tipo do ponteiro, agora sabe que precisa verificar quem está realmente do outro lado antes de chamar o método.
 
-## 2.4 Classes abstratas 
+## 2.4 Classes abstratas
 
 No exemplo anterior, vimos que o método `atacar()` da classe `Personagem` existe apenas como um "ataque básico genérico", uma versão que, na prática, nunca deveria ser chamada diretamente.
 
@@ -171,7 +171,7 @@ Esse contrato é definido por meio de métodos puramente virtuais, declarados co
 virtual void atacar() = 0;
 ```
 
-Ao declarar um método assim, você está dizendo: *"Toda classe filha concreta deve implementar esse comportamento. Eu, classe base, não tenho uma versão padrão para oferecer."*
+Ao declarar um método assim, você está dizendo: _"Toda classe filha concreta deve implementar esse comportamento. Eu, classe base, não tenho uma versão padrão para oferecer."_
 
 Vamos seguir retomando o exemplo anterior, mas, dessa vez, usando **classe abstrata**:
 
@@ -239,4 +239,3 @@ int main() {
 ```
 
 O compilador não deixará o código sequer compilar. É uma proteção em tempo de compilação que evita que um herói "incompleto" entre em jogo.
-
