@@ -496,6 +496,40 @@ Magia: 100
 
 Perceba como separamos muito melhor as **responsabilidades**. Um usuário, programando apenas na `main()`, não precisa se preocupar com os pormenores de toda a nossa implementação anterior! Além disso, o código dele não terá interferência lá! Usufruímos da **Herança** muito bem e criamos uma **API** bem bacana!
 
-### Conclusões
+## Exercícios
+
+**1) Expandindo o Arsenal (Herança Simples e Organização)**
+
+Crie uma nova classe chamada Armadura que herde da classe base Equipamento.
+
+Requisitos:
+
+Crie um novo enum chamado pesoArmadura com os valores: leve, media, pesada
+
+A classe Armadura deve ter dois atributos exclusivos e privados (ou protegidos):
+tipoDePeso (do tipo pesoArmadura);
+reducaoDeDano (do tipo double);
+
+Siga o padrão de projeto do material
+Declare a classe e implemente os Getters e Setters no arquivo Equipamento.hpp;
+Implemente o construtor da Armadura no arquivo Equipamento.cpp, lembrando de repassar os atributos base para o construtor da classe mãe (Equipamento);
+
+No Main.cpp, instancie uma armadura chamada "Cota de Malha do Aprendiz" e imprima no console sua redução de dano e seu bônus de defesa.
+
+**2) O Desafio do Paladino (Herança Múltipla e o Problema do Diamante)**
+
+Crie uma classe chamada ArmaduraMagica que aplique o conceito de Herança Múltipla, herdando simultaneamente das classes Armadura (criada no exercício anterior) e Magia.
+
+Requisitos:
+
+A classe ArmaduraMagica não precisa ter nenhum atributo novo, mas seu construtor deve receber todos os parâmetros necessários para inicializar uma Armadura e uma Magia.
+
+Atenção à arquitetura: Lembre-se de que tanto Armadura quanto Magia herdam de Equipamento. Para evitar que o Paladino carregue duas instâncias de Equipamento na memória (o temido Problema do Diamante), você deve fazer uma alteração crucial na forma como Armadura herda de Equipamento no arquivo .hpp.
+
+No arquivo Equipamento.cpp, implemente o construtor da ArmaduraMagica. Lembre-se da regra de ouro da herança virtual: a classe neta (ArmaduraMagica) é a responsável por ativar diretamente o construtor da classe avó (Equipamento).
+
+Instancie a sua ArmaduraMagica no Main.cpp passando o elemento luz e teste se o código compila sem ambiguidades!
+
+## Conclusões
 
 Você deu mais um importante passo no aprendizado de orientação a objetos! Na próxima parte, abordaremos **Polimorfismo**, que também é essencial. Continue!
