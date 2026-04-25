@@ -291,7 +291,7 @@ public:
 
 Rapidamente, resolvemos essa questão. Isso também altera o construtor da nossa `EspadaMagica`, observe no próximo tópico.
 
-## Aplicando em Main.cpp
+### Aplicando em Main.cpp
 
 Para realizar o uso de múltiplos arquivos, vamos criar o header `Equipamento.hpp`. Isso vai mudar o que implementamos até aqui em `Equipamento.cpp`. Acompanhe:
 
@@ -496,6 +496,6 @@ Magia: 100
 
 Perceba como separamos muito melhor as **responsabilidades**. Um usuário, programando apenas na `main()`, não precisa se preocupar com os pormenores de toda a nossa implementação anterior! Além disso, o código dele não terá interferência lá! Usufruímos da **Herança** muito bem e criamos uma **API** bem bacana!
 
-## Conclusões
+### Conclusões
 
 Você deu mais um importante passo no aprendizado de orientação a objetos! Na próxima parte, abordaremos **Polimorfismo**, que também é essencial. Continue!
