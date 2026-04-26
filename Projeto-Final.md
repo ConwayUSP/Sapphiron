@@ -76,6 +76,26 @@ No email, você pode enviar um link para seu repositório no **GitHub**, ou anex
 
 Para facilitar a sua identificação, não deixe de colocar no email o seu nome completo e identifique quais são os setores da **Conway** (OP, DLC, GG, DPS) que você participa!
 
+# Links Úteis!
+
+Aqui, separamos alguns links que poderão ajudar a deixar os seus **prints** no terminal mais bonitos e estilizados.
+
+## Para Estética:
+
+1. Códigos ANSI: https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797
+
+2. Biblioteca {fmt}: https://github.com/fmtlib/fmt
+
+3. FTXUI: https://github.com/ArthurSonzogni/FTXUI
+
+## Para Delays:
+
+1. `std::this_thread::sleep_for`: https://en.cppreference.com/w/cpp/thread/sleep_for
+
+2. `std::chrono`: https://en.cppreference.com/w/cpp/chrono
+
+3. `std::flush`: https://en.cppreference.com/w/cpp/io/manip/flush
+
 # Conclusões
 
 Esperamos que você tenha tido uma **boa experiência de aprendizado** com a nossa trilha e este projeto final. Qualquer dúvida a respeito, não deixe de comunicar aqui **pelo GitHub, pelo email ou diretamente com um dos responsáveis pela trilha**.
