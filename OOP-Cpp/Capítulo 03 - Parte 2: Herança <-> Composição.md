@@ -266,5 +266,6 @@ Nós vemos por aí... tchau!
 
 - Site learncpp: https://www.learncpp.com/
 - Herança x Composição: https://www.macoratti.net/11/05/oop_cph1.htm
+- Operator Overloading: https://www.geeksforgeeks.org/cpp/operator-overloading-cpp/
 
 <img src="../OOP-Cpp/imagens/03_adeus_miranha.jpg" width=500>
