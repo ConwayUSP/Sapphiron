@@ -1,4 +1,4 @@
-# Capítulo 01: Encapsulamento
+# Capítulo 01: Modificadores de Acesso e Encapsulamento
 
 ## 1.1 Modificadores de acesso
 

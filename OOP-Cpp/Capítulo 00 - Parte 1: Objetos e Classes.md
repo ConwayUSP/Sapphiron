@@ -68,7 +68,7 @@ Aqui vão alguns exemplos de como atribuir um valor aos atributos de um objeto. 
    //Determina o valor desses atributos
    gatito.nome = "Gatito";
    gatito.idade = 7;
-   gatito.raca = PERSA;
+   gatito.raca = "PERSA";
 
    //Chama o método e executa seu código
    gatito.miar();
@@ -78,6 +78,223 @@ A seguir, um esquema visual para ajudar a entender a relação entre classes e s
 
 ![Esquema visual representando três objetos da classe Gato. Cada objeto tem o mesmo número de patas (determinado pela classe), mas nome, idade e raça diferentes.](./imagens/cap000-img1.png "Relaçao Classe-Obj")
 
+## Código de verdade
+
+Tendo em vista que você já chegou até aqui neste material, seria talvez uma certa perda de tempo permanecer em pseudocódigo. Não vamos subestimar as suas capacidades dessa maneira. A partir de agora, é mão na massa!
+
+A sintaxe mais básica para construir classes não é nada de outro mundo. Na verdade, é bem semelhante ao que já foi descrito conceitualmente acima!
+
+**Exemplo: traduza o pseudocódigo anterior para a sintaxe real do C++**
+
+A sintaxe para declarar uma **classe** em **C++** funciona, simplesmente, a partir do uso do termo **class** seguido do nome que sua classe terá. Uma padronização é sempre manter maiúsculo o primeiro caractere do nome dela:
+
+```cpp
+class Gato{
+    // Código aqui
+};
+```
+
+Lembra bastante a declaração de uma estrutura, não? Ela será declarada fora do escopo de funções, como por exemplo a `main()`.
+
+Agora, queremos colocar os nossos atributos lá:
+
+```cpp
+#include <string>
+
+class Gato{
+    bool mamifero = true;
+    int numero_patas = 4;
+
+    std::string nome;
+    int idade;
+    std::string raca;
+};
+```
+
+Mas, espera, lembra que `mamifero` e `numero_patas` são atributos estáticos e constantes? Como representamos isso na sintaxe?
+
+Lembra dos capítulos da parte de `Introducao-Cpp`? Lá, temos um sobre variáveis locais estáticas. Para programar, temos a utilização do termo `static`. E, aqui não é diferente:
+
+```cpp
+class Gato{
+    static bool mamifero = true;
+    static int numero_patas = 4;
+
+    std::string nome;
+    int idade;
+    std::string raca;
+};
+```
+
+MASSS, seria legal fazer algo nesse sentido aqui:
+
+```cpp
+class Gato{
+    // Pertence à classe e é imutável
+    static const bool mamifero = true;
+    static const int numero_patas = 4;
+
+    std::string nome;
+    int idade;
+    std::string raca;
+};
+```
+
+Perceba que adicionamos, também, o termo `const` depois de `static`.
+
+Se o valor é fixo para toda a classe e nunca vai ser alterado (como o número de patas de um gato), usar `static const` é a forma mais clássica e segura: ideal para valores que não mudam.
+
+Se for necessário um atributo estático que pode mudar ao longo do tempo (por exemplo, algo booleano, ou um contador global), o `C++17` facilitou muito a vida com o `inline`:
+
+```cpp
+class Gato{
+    // Pertence à classe e é imutável
+    static const bool mamifero = true;
+    static const int numero_patas = 4;
+    // Pertence à classe e pode ser alterado
+    inline static bool buchoCheio = true;
+
+    std::string nome;
+    int idade;
+    std::string raca;
+};
+```
+
+Por fim, vamos adicionar o nosso método `miar()`:
+
+```cpp
+#include <iostream>
+#include <string>
+
+class Gato{
+    // Pertence à classe e é imutável
+    static const bool mamifero = true;
+    static const int numero_patas = 4;
+    // Pertence à classe e pode ser alterado
+    inline static bool buchoCheio = true;
+
+    std::string nome;
+    int idade;
+    std::string raca;
+
+    void miar(){
+        std::cout << "MIAU" << std::endl;
+    }
+
+};
+```
+
+Maravilha! Temos a nossa classe. Que tal testar um pouco rodando na `main()`?
+
+```cpp
+#include <iostream>
+#include <string>
+
+class Gato{
+    // Pertence à classe e é imutável
+    static const bool mamifero = true;
+    static const int numero_patas = 4;
+    // Pertence à classe e pode ser alterado
+    inline static bool buchoCheio = true;
+
+    std::string nome;
+    int idade;
+    std::string raca;
+
+    void miar(){
+        std::cout << "MIAU" << std::endl;
+    }
+
+};
+
+int main(){
+    //Cria o objeto
+    Gato gatito;
+
+    //Determina o valor desses atributos
+    gatito.nome = "Gatito";
+    gatito.idade = 7;
+    gatito.raca = "PERSA";
+
+    //Chama o método e executa seu código
+    gatito.miar();
+
+    return 0;
+}
+```
+
+Simplesmente, realizamos um copia e cola do que já havíamos feito anteriormente!
+
+Porém, ainda não acabamos. Você não conseguirá compilar o código nesse estado. Existe um detalhe a respeito da acessibilidade de tudo que está dentro da classe: eles, por padrão, não são acessíveis fora dela. Isso será melhor explicado no capítulo sobre `Modificadores de Acesso`, então não deixem de conferir!
+
+Mas, como podemos resolver isso por ora? Adicionando o termo `public` na nossa classe, antes dos atributos e métodos. Isso faz com que eles sejam acessíveis em toda parte:
+
+```cpp
+class Gato {
+
+public:
+    // Pertence à classe e é imutável
+    static const bool mamifero = true;
+    static const int numero_patas = 4;
+    // Pertence à classe e pode ser alterado
+    inline static bool buchoCheio = true;
+
+    std::string nome;
+    int idade;
+    std::string raca;
+
+    void miar(){
+        std::cout << "MIAU" << std::endl;
+    }
+};
+```
+
+Agora sim, compilando e rodando:
+
+```
+MIAU
+```
+
+Inclusive, já que incluimos variáveis estáticas, é justo provar que elas pertencem à classe `Gato` em si, não especificamente ao `gatito`.
+
+Na nossa `main()`, vamos adicionar:
+
+```cpp
+
+int main(){
+    //Cria o objeto
+    Gato gatito;
+
+    //Determina o valor desses atributos
+    gatito.nome = "Gatito";
+    gatito.idade = 7;
+    gatito.raca = "PERSA";
+
+    //Chama o método e executa seu código
+    gatito.miar();
+
+    //Printando variáveis estáticas
+    std::cout << Gato::mamifero << std::endl;
+    std::cout << Gato::numero_patas << std::endl;
+    std::cout << Gato::buchoCheio << std::endl;
+
+    return 0;
+}
+```
+
+Acessamos diretamente a classe a partir dos `::`.
+
+Compilando e rodando:
+
+```cpp
+MIAU
+1
+4
+1
+```
+
+> Caso você não se lembre, o "1" corresponde ao true do bool!
+
 ## Conclusões
 
-Nesta primeira parte do capítulo, conhecemos alguns conceitos na teoria. Não se assuste. Em breve nos aprofundaremos nesses conceitos. Em sequência, vamos entender um pouco melhor sobre o que são construtores e como escrevê-los, além de algumas especificidades do C++. Fique de olho e não perca a Parte 2!
+Nesta primeira parte do capítulo, conhecemos alguns conceitos na teoria. Logo em seguida, passamos para a sintaxe do C++. Em sequência, vamos entender um pouco melhor sobre o que são construtores e como escrevê-los, além de algumas especificidades do C++. Fique de olho e não perca a Parte 2!

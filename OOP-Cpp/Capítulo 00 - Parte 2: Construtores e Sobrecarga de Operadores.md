@@ -8,7 +8,7 @@ Na parte anterior, vimos que para criar um objeto Gato poderíamos escrever:
 Gato gatito;
 gatito.nome = "Gatito";
 gatito.idade = 7;
-gatito.raca = PERSA;
+gatito.raca = "PERSA";
 ```
 
 Funciona, mas é bem verboso. E se pudéssemos passar essas informações na hora de criar o objeto, assim como fazemos com uma função? É exatamente para isso que existe o **construtor**.
@@ -17,7 +17,7 @@ Um construtor é um método especial que é chamado automaticamente toda vez que
 
 ### Construtor padrão
 
-Em C++, se você não escrever nenhum construtor, o compilador gera um automaticamente, o chamado **construtor padrão** (default constructor). 
+Em C++, se você não escrever nenhum construtor, o compilador gera um automaticamente, o chamado **construtor padrão** (default constructor).
 
 Ele não faz nada além de reservar espaço na memória para o objeto. É o equivalente a receber um gatinho sem nome, sem idade e sem raça definidos.
 
@@ -105,7 +105,7 @@ public:
 };
 ```
 
-3. **É o padrão que você verá em código profissional:** Se você der uma bisbilhotada nos construtores dos próximos capítulo, verá que todos usam essa sintaxe.
+3. **É o padrão que você verá em código profissional:** Se você der uma bisbilhotada nos construtores dos próximos capítulos, verá que todos usam essa sintaxe.
 
 ### Múltiplos construtores
 
@@ -140,7 +140,7 @@ O compilador decide automaticamente qual construtor chamar com base nos argument
 
 Outra característica bem marcante do C++ é permitir que o programador redefina o comportamento dos operadores da linguagem, como `+, -, *, <, ==,` e vários outros, para os seus próprios tipos.
 
-Isso se chama **sobrecarga de operadores** (*operator overloading*).
+Isso se chama **sobrecarga de operadores** (_operator overloading_).
 
 Imagine que você criou uma classe `Vetor2D` para representar vetores matemáticos no plano:
 
@@ -166,7 +166,7 @@ Funciona, mas perde toda a expressividade matemática. Com sobrecarga, podemos s
 
 ```cpp
 Vetor2D resultado = v1 + v2;
-````
+```
 
 Muito mais natural, certo?
 
@@ -207,7 +207,7 @@ int main() {
 }
 ```
 
-> O `const` no final da assinatura indica que o método não modifica o objeto. O `const Vetor2D&` outro indica que recebemos o outro objeto por referência, sem copiar, e sem modificá-lo. Boas práticas que você verá frequentemente em código C++
+> O `const` no final da assinatura indica que o método não modifica o objeto. O `const Vetor2D&` outro indica que recebemos o outro objeto por referência, sem copiar, e sem modificá-lo. Boas práticas que você verá frequentemente em código C++.
 
 ### Um exemplo mais próximo: o nosso Gato
 
@@ -261,15 +261,15 @@ A palavra-chave `friend` no operador `<<` merece atenção: como esse operador �
 A sobrecarga de operadores pode deixar o código muito mais expressivo, mas também pode ser usada de forma irresponsável. Antes de sobrecarregar um operador, vale se perguntar:
 
 - **O comportamento é intuitivo?**
-  
+
 `v1 + v2` para vetores é óbvio. Mas `gato1 + gato2`, o que isso produziria? Um gatinho? Se o significado não for imediatamente claro, uma função com nome descritivo é melhor do que um operador.
 
 - **O comportamento é consistente com a convenção?**
-  
+
 Se você define `==`, é esperado que você também defina `!=`. Se define `<`, espera-se `>`, `<=`, `>=`. Sobrecarregar apenas metade dos operadores relacionados pode gerar comportamentos confusos.
 
 - **O código fica mais legível ou menos?**
-  
+
 Esse é o teste final. Se após a sobrecarga o `main` ficou mais fácil de ler e entender, ótimo. Se ficou mais difícil de rastrear o que está acontecendo, reconsidere.
 
 ## Exercícios
@@ -283,7 +283,6 @@ Requisitos:
 - A classe deve ter três construtores diferentes usando lista de inicialização: um construtor padrão que inicialize nome como "Desconhecido", tipo como "Normal" e nivel como 1; um construtor que receba apenas nome e tipo, inicializando nivel como 1; um construtor completo que receba os três atributos.
 - No Main.cpp, instancie um Pokemon com cada um dos três construtores e imprima os atributos de cada um no console. Confirme que o compilador está escolhendo o construtor correto em cada caso.
 
-
 **2) Comparando Pokémons**
 
 Expanda a classe Pokemon do exercício anterior com duas sobrecargas de operadores.
@@ -292,21 +291,22 @@ Requisitos:
 
 - Sobrecarregue o operador > para comparar dois pokémons pelo nivel. A expressão p1 > p2 deve retornar true se p1 tiver nível maior que p2.
 - Sobrecarregue o operador << para permitir imprimir um Pokemon diretamente com std::cout. O formato de saída deve ser: Charmander [Fogo] - Nível 12. Como os atributos da classe são públicos, o operador pode ser definido diretamente como uma função fora da classe, sem a necessidade de friend:
+
 ```cpp
 std::ostream& operator<<(std::ostream& os, const Pokemon& p) {
     os << p.nome << " [" << p.tipo << "] - Nível " << p.nivel;
     return os;
 }
 ```
+
 - No Main.cpp, instancie dois pokémons com níveis diferentes, imprima ambos com std::cout e use o operador > para exibir no console qual dos dois está em nível mais alto.
 
 ## Conclusão
 
-Chegamos ao fim do Capítulo 0! Saímos do conceito abstrato de "o que é orientação a objetos" e chegamos até mecanismos bem concretos do C++. 
+Chegamos ao fim do Capítulo 0! Saímos do conceito abstrato de "o que é orientação a objetos" e chegamos até mecanismos bem concretos do C++.
 
-Você agora sabe o que são classes e objetos, como inicializá-los de forma eficiente com construtores e listas de inicialização, e como tornar seus tipos mais expressivos com sobrecarga de operadores. 
+Você agora sabe o que são classes e objetos, como inicializá-los de forma eficiente com construtores e listas de inicialização, e como tornar seus tipos mais expressivos com sobrecarga de operadores.
 
 No próximo capítulo, vamos nos aprofundar em encapsulamento e modificadores de acesso.
 
 Te vejo lá!
-

@@ -55,13 +55,13 @@ public:
 };
 ```
 
-Ok, funcionou! Mas agora o designer do jogo chega com uma novidade: *"precisamos de um Guerreiro Alado. Ele anda E voa".*
+Ok, funcionou! Mas agora o designer do jogo chega com uma novidade: _"precisamos de um Guerreiro Alado. Ele anda E voa"._
 
 E aí começa o problema. Como `Guerreiro` já herda de `PersonagemTerrestre`, e `PersonagemVoador` é uma hierarquia separada... Voltamos ao Problema do Diamante. Poderíamos usar `virtual public` de novo, mas a hierarquia já começa a ficar torta.
 
-E não para por aí. Uma semana depois: *"agora precisamos de um Guerreiro Anfíbio, que anda e nada"*. Depois: *"um Dragão que também nada"*. A cada nova combinação de comportamentos, precisamos criar uma nova classe na hierarquia, gerando uma **explosão de classes**.
+E não para por aí. Uma semana depois: _"agora precisamos de um Guerreiro Anfíbio, que anda e nada"_. Depois: _"um Dragão que também nada"_. A cada nova combinação de comportamentos, precisamos criar uma nova classe na hierarquia, gerando uma **explosão de classes**.
 
-A raiz do problema é que estamos usando herança para modelar um comportamento, a forma de se mover, e não uma relação de identidade. Um Guerreiro não é um Terrestre. Ele apenas se *move* de uma certa forma.
+A raiz do problema é que estamos usando herança para modelar um comportamento, a forma de se mover, e não uma relação de identidade. Um Guerreiro não é um Terrestre. Ele apenas se _move_ de uma certa forma.
 
 ### A solução com composição
 
@@ -70,6 +70,7 @@ Com composição, separamos o comportamento de movimento em uma interface e deix
 ```
 IMovimento.hpp
 ```
+
 ```cpp
 class IMovimento {
 public:
@@ -106,6 +107,7 @@ Agora, a classe `Personagem` tem um `IMovimento`, em vez de herdar um:
 ```
 Personagem.hpp
 ```
+
 ```cpp
 class Personagem {
 protected:
@@ -146,9 +148,11 @@ public:
 ```
 
 E no `Main.cpp`, a combinação de comportamentos vira trivial:
+
 ```
 Main.cpp
 ```
+
 ```cpp
 // Main.cpp
 
@@ -184,6 +188,7 @@ int main() {
 ```
 
 Saída esperada do código acima:
+
 ```
 Saitama caminha pelo terreno.
 Saitama golpeia com o punho!
@@ -223,7 +228,7 @@ A herança funciona bem quando a filha acrescenta ao comportamento da mãe. Se a
 
 **4. A hierarquia representar claramente um relacionamento "é um"**
 
-Antes de criar uma herança, faça a pergunta em voz alta: "`EspadaMagica` *é uma* `Espada`?" —> faz sentido. "`Guerreiro`  é um `MovimentoTerrestre`?" —> não faz sentido nenhum. Se soar estranho, provavelmente é composição.
+Antes de criar uma herança, faça a pergunta em voz alta: "`EspadaMagica` _é uma_ `Espada`?" —> faz sentido. "`Guerreiro` é um `MovimentoTerrestre`?" —> não faz sentido nenhum. Se soar estranho, provavelmente é composição.
 
 **5. Você precisar aplicar alterações globais às classes filhas mudando apenas a classe pai**
 
@@ -231,7 +236,7 @@ Se você adicionar um método `descansar()` na classe `Personagem`, automaticame
 
 **6. Você precisar aplicar a mesma lógica a diferentes tipos de dados**
 
-Quando várias classes compartilham a *mesma estrutura* e lógica, e não apenas o mesmo contrato, herança evita uma duplicação real de código. Interfaces definem *o quê*; a herança de uma classe concreta pode compartilhar *o como*.
+Quando várias classes compartilham a _mesma estrutura_ e lógica, e não apenas o mesmo contrato, herança evita uma duplicação real de código. Interfaces definem _o quê_; a herança de uma classe concreta pode compartilhar _o como_.
 
 **Em resumo: use herança para modelar **o que algo é**. Use composição para modelar **o que algo faz**. Na dúvida, composição costuma ser a escolha mais segura, é mais fácil partir dela e introduzir herança depois do que refatorar uma hierarquia torta no meio do projeto.**
 
@@ -244,15 +249,15 @@ Retome o sistema de equipamentos do Capítulo 2 — especificamente a EspadaMagi
 - Refatore essa classe usando composição: em vez de herdar de Magia, a EspadaMagica deve ter uma IHabilidade (uma nova interface que você vai criar), com um método virtual puro void ativarHabilidade().
 - Crie uma classe MagiaDeGelo e uma MagiaDeFogo que implementem IHabilidade, e instancie no Main.cpp duas EspadaMagicas com magias diferentes, chamando ativarHabilidade() em cada uma.
 
-## Conclusão 
+## Conclusão
 
-Vimos na prática por que "prefira composição sobre herança" é um dos conselhos mais valiosos da orientação a objetos. 
+Vimos na prática por que "prefira composição sobre herança" é um dos conselhos mais valiosos da orientação a objetos.
 
 Mas o recado mais importante fica na seção 3.5: composição não é substituta universal da herança. São ferramentas para problemas diferentes. Quando a relação é genuinamente "é um", a herança é elegante e eficiente. Quando a relação é "faz algo" ou "tem um comportamento", a composição vai te poupar muita dor de cabeça.
 
-Com isso, encerramos o Capítulo 3. 
+Com isso, encerramos o Capítulo 3.
 
-Agora, você já tem mais que o suficiente para se aventurar em projetos pessoais usando C++! 
+Agora, você já tem mais que o suficiente para se aventurar em projetos pessoais usando C++!
 
 Esperamos que tenha aproveitado e gostado desta trilha :)
 
@@ -260,7 +265,7 @@ Sinta-se livre para elogiar ou criticar qualquer aspecto da trilha e para coment
 
 Ah, e se você é membro da Conway e ainda está no período de fazer as trilhas, não se esqueça de fazer o projeto final e mandar para a gente!
 
-Nós vemos por aí... tchau!
+Nos vemos por aí... tchau!
 
 ## Bibliografia
 
