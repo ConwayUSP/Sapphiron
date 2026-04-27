@@ -1,4 +1,4 @@
-# Capítulo 01: Encapsulamento e Abstração
+# Capítulo 01: Encapsulamento
 
 ## 1.1 Modificadores de acesso
 
@@ -146,7 +146,7 @@ Bandas.cpp
 class Metal : public Banda {
 public:
   Metal(std::string nome, int anoFundacao,
-        std::vector<std::string> listaDeMusicas, std::string genero)
+        std::vector<std::string> listaDeMusicas)
       : Banda(nome, anoFundacao, listaDeMusicas, "METAL") {}
 
   void info() {
@@ -248,7 +248,7 @@ Do jeito que o código está, o que acontece se tentarmos acessar `id` na nossa 
 class Metal : public Banda {
 public:
   Metal(std::string id, std::string nome, int anoFundacao,
-        std::vector<std::string> listaDeMusicas, std::string genero)
+        std::vector<std::string> listaDeMusicas)
       : Banda(id, nome, anoFundacao, listaDeMusicas, "METAL") {}
 
   void info() {
@@ -433,7 +433,7 @@ Para finalizar, vamos refatorar a nossa classe filha:
 class Metal : public Banda {
 public:
   Metal(std::string id, std::string nome, int anoFundacao,
-        std::vector<std::string> listaDeMusicas, std::string genero)
+        std::vector<std::string> listaDeMusicas)
       : Banda(id, nome, anoFundacao, listaDeMusicas, "METAL") {}
 
   void info() {
@@ -489,4 +489,4 @@ Tarefa: Refatore a classe Pedal utilizando os conceitos de Getters e Setters par
 
 Aqui, na primeira parte, você aprendeu a respeito de modificadores de acesso e, logo em seguida, encapsulamento e API com getters/setters. Isso é de grande importância para suas habilidades de programação e é um dos pilares da linguagem `C++`.
 
-Na próxima parte, falaremos de abstrações. Não deixe de conferir!
+No próximo capítulo, começaremos falando de herança. Não deixe de conferir!

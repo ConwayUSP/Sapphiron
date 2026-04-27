@@ -2,8 +2,6 @@
 
 ## 2.1 Herança
 
-No capítulo anterior, acabamos adiantando um pouco o tópico de **herança**, por motivos de força maior. Agora, poderemos tratar com um pouco mais de calma e verificar todo o potencial dessa ferramenta aqui no `C++`!
-
 A herança permite com que possamos reaproveitar código, reaplicando métodos/atributos de uma classe para suas derivadas. Dessa maneira, evitamos bastante **código redundante** de maneira bem elegante e precisa.
 
 Imagine que você esteja modelando um sistema de equipamentos para um jogo de RPG. Como funcionaria isso em **orientação a objetos**?
