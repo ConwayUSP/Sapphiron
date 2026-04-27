@@ -20,7 +20,7 @@ Tentaremos trazer os alicerces necessários, **de maneira mais acessível possí
 
 Primeiramente, começaremos com __os conceitos principais__ da linguagem C++. Variávies e tipos, bem como especificidades da linguagem.
 
-Depois, prosseguiremos para __Orientação a Objetos__ *(Em construção)*, uma poderosa ferramenta para desenvolvimento de projetos em diferentes escalas. Tentaremos trazer os principais conceitos, bem como alguns detalhes importantes acerca de suas funcionalidades e estruturação.
+Depois, prosseguiremos para __Orientação a Objetos__, uma poderosa ferramenta para desenvolvimento de projetos em diferentes escalas. Tentaremos trazer os principais conceitos, bem como alguns detalhes importantes acerca de suas funcionalidades e estruturação.
 
 Por fim, encerraremos com a produção de uma aplicação, para demonstrar **os frutos de nosso aprendizado!** Além disso, teremos um apêndice para a utilização de uma linguagem paralela para a compilação de projetos: a __linguagem Zig__.
 
