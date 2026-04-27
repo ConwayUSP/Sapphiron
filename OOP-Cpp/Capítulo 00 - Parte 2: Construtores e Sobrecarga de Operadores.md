@@ -136,7 +136,7 @@ int main() {
 
 O compilador decide automaticamente qual construtor chamar com base nos argumentos fornecidos.
 
-## 0.4 Operator Overload (Sobrecarga de Operadores)
+## 0.5 Operator Overload (Sobrecarga de Operadores)
 
 Outra característica bem marcante do C++ é permitir que o programador redefina o comportamento dos operadores da linguagem, como `+, -, *, <, ==,` e vários outros, para os seus próprios tipos.
 
@@ -218,10 +218,11 @@ Voltando ao nosso gatinho: suponha que queiramos comparar dois gatos pelo nome, 
 #include <string>
 
 class Gato {
-public:
+private:
     std::string nome;
     int idade;
 
+public:
     Gato(std::string n, int i) : nome(n), idade(i) {}
 
     // Dois gatos são iguais se tiverem o mesmo nome e idade
@@ -241,7 +242,7 @@ int main() {
     Gato clone("Gatito007", 67);
     Gato outro("Mingau", 3);
 
-    std::cout << gatito << std::endl; // "Gatito (7 anos)"
+    std::cout << gatito << std::endl; // "Gatito007 (67 anos)"
 
     if (gatito == clone) {
         std::cout << "São o mesmo gato!" << std::endl;
