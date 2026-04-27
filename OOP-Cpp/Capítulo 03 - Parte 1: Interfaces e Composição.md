@@ -35,12 +35,13 @@ class IEquipavel {
 public:
   virtual void equipar() = 0;  
   virtual void desequipar() = 0;
-  virtual std::string getNome() = 0;
-  virtual ~IEquipavel() = default;
+  virtual std::string getNome() const = 0;
+  virtual ~IEquipavel() = default; // destrutor virtual
 };
 ```
 
-> Nota: A convenção de colocar um I na frente do nome (de Interface) é bastante comum. Não é obrigação do compilador, mas vai deixar o seu código bem mais legível para outros devs!
+> Nota 1: A convenção de colocar um I na frente do nome (de Interface) é bastante comum. Não é obrigação do compilador, mas vai deixar o seu código bem mais legível para outros devs!
+> Nota 2: O destrutor `virtual ~IEquipavel() = default` é essencial. Quando você deleta um objeto através de um ponteiro da interface, o C++ precisa saber qual destrutor chamar. Sem o `virtual`, ele chamaria sempre o destrutor da interface, e a memória do objeto filho nunca seria liberada corretamente. Sempre coloque um destrutor virtual nas suas interfaces!
 
 Isso é uma **interface** no C++: uma classe que só define o contrato, sem nenhum atributo e sem nenhuma implementação. Quem herdar dela é obrigado a implementar todos esses métodos, ou também virará uma classe abstrata.
 
@@ -63,7 +64,7 @@ class IEquipavel {
 public:
   virtual void equipar() = 0;
   virtual void desequipar() = 0;
-  virtual std::string getNome() = 0;
+  virtual std::string getNome() const = 0;
   virtual ~IEquipavel() = default;
 };
 
