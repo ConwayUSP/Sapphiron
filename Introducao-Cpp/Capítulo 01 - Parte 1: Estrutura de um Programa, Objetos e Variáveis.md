@@ -100,15 +100,25 @@ Recomendamos procurar mais sobre outros tipos de dados para se apronfundar e ter
 
 Objetos em C++ são instâncias de tipos, seja um tipo pré-definido pela linguagem (como `int`, `double` ou `std::string`), seja um tipo definido pelo próprio programador (uma classe).
 
-Cada objeto agrupa dados — seus atributos — e pode também agrupar comportamentos — seus métodos. 
+Cada objeto ocupa um espaço de memória para armazenar dados. No caso de tipos definidos pelo programador, um objeto também pode agrupar atributos — os dados que ele carrega — e métodos — os comportamentos que ele oferece. 
 
-Por exemplo, um objeto `Pessoa` pode conter atributos como `nome` e `idade`, e métodos como `falar()` ou `aniversariar()`. Exemplos:
+Por exemplo, um objeto do tipo `Pessoa` carrega atributos como `nome` e `idade`, e tem acesso a métodos como `falar()` ou `aniversariar()`.
+
+Já tipos primitivos como `int` e `double` armazenam apenas um valor simples, sem atributos ou métodos.
+
+Veja os exemplos a seguir:
 
 ```cpp
 int x = 5;                          // Objeto do tipo primitivo
-std::string nome = "Alice";         // Objeto de uma classe Pessoa
+std::string nome = "Alice";         // Objeto da classe std::string (biblioteca padrão)
+
 Pessoa pessoa1;                     // Objeto de classe definida pelo programador
+pessoa1.nome = "Alice";             // Acessando um atributo
+pessoa1.falar();                    // Chamando um método
 ```
+
+> Essa é só uma visão breve e geral sobre o tema, caso queira explorar mais os conceitos de objetos e classes, veja a primeira aula do capítulo 00 de POO.
+
 ## Questões complementares
 
 Abaixo, estão alguns exercícios para se colocar em prática o que foi visto. Recomendamos que você tente fazer sem ajuda externa, principalmente se esse for o seu primeiro contato com o assunto. 
@@ -138,7 +148,7 @@ Nesta primeira parte do Capítulo 1, você conheceu a estrutura básica de todo 
 
 Também vimos como inserir comentários de linha única ou múltiplas linhas para documentar o “porquê” de cada trecho, mantendo o código legível e fácil de entender.
 
-Vimos também que objetos em C++ representam instâncias concretas de tipos — sejam tipos primitivos como `int` e `double`, ou tipos definidos pelo programador via `class` — e que cada objeto ocupa um espaço de memória onde seus atributos são armazenados.
+Vimos também que objetos em C++ representam instâncias concretas de tipos — sejam tipos primitivos como `int` e `double`, ou tipos definidos pelo programador, como o exemplo **Pessoa** visto na seção 1.4, e que cada objeto ocupa um espaço de memória, guardando um valor simples, no caso dos tipos primitivos, ou um conjunto de atributos, no caso de tipos definidos pelo programador.
 
 Já as variáveis são simplesmente nomes associados a esses locais de memória, permitindo que seu programa armazene, modifique e recupere valores ao longo da execução.
 
