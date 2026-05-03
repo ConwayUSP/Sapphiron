@@ -1,6 +1,12 @@
 # 🐉 Sapphiron: Introdução ao C++ ⚡❄️
 
-Pensando em introduzir novas pessoas no mundo da programação de baixo nível e de alto desempenho, nós propomos, neste repositório, um curso introdutório à linguagem C++!
+Pensando em introduzir novas pessoas no mundo da programação de baixo nível e de alto desempenho, nós propomos, neste repositório, um curso introdutório à linguagem C++! Vulgo **Sapphiron**!
+
+<img src="Media/sapphiron.jpg" width=500>
+
+> "Sapphiron é um dos chefes finais da raide Naxxramas em World of Warcraft, um poderoso dragão azul da revoada de Malygos que foi morto por Arthas Menethil e ressuscitado como um frost wyrm (serpente gélida) para proteger Kel'Thuzad."
+
+> O logotipo oficial e a identidade visual da linguagem C++ são pautados na cor azul. O nome Sapphiron deriva de "Safira" (Sapphire).
 
 ## Sobre este curso
 
