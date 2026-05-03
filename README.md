@@ -42,7 +42,7 @@ Recomenda-se que você siga a ordem das aulas de maneira numérica, começando p
 
 ### Como posso obter meu Certificado?
 
-Membros da Conway USP que se inscreveram nesta trilha através do **Processo Interno** tem direito a um **Certificado de Conclusão** ao finalizarem esta trilha, tudo que você precisa fazer é realizar o [Projeto Final](https://github.com/ConwayUSP/Intro_Cpp/blob/main/Projeto-Final.md) e enviar seu projeto conforme as istruções no final do arquivo.
+Membros da Conway USP que se inscreveram nesta trilha através do **Processo Interno** tem direito a um **Certificado de Conclusão** ao finalizarem esta trilha, tudo que você precisa fazer é realizar o [Projeto Final](https://github.com/ConwayUSP/Intro_Cpp/blob/main/Projeto-Final.md) e enviar seu projeto conforme as instruções no final do arquivo.
 
 Desejamos uma ótima jornada e divirta-se!
 
