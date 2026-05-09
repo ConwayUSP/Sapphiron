@@ -76,6 +76,8 @@ Para facilitar a sua identificação, não deixe de colocar no email o seu nome 
 
 Aqui, separamos alguns links que poderão ajudar a deixar os seus **prints** no terminal mais bonitos e estilizados.
 
+> Observação: não se perca no personagem, gastando uma quantidade enorme de tempo estilizando os prints no seu terminal! Foque em deixar o terminal o mais limpo e organizado possível.
+
 ## Para Estética:
 
 1. Códigos ANSI: https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797
