@@ -450,7 +450,7 @@ EspadaMagica::EspadaMagica(std::string nome, int atq, int est, int def, int mag,
 
 Ok, ok! Um passo de cada vez...
 
-O que havia ficado faltante nas classes do `.hpp`? **Os pormenores dos construtores**! No nosso `Equipamento.cpp`, você inclui o seu .hpp e usa o operador de escopo `::` para dizer ao compilador: "Ei, lembra daquele método atacar que eu prometi no HPP? Aqui está o código dele".
+O que havia ficado faltante nas classes do `.hpp`? **Os pormenores dos construtores**! No nosso `Equipamento.cpp`, você inclui o seu .hpp e usa o operador de escopo `::` para dizer ao compilador: "Ei, lembra daquele método que eu prometi no HPP? Aqui está o código dele".
 
 Como nossos únicos métodos eram `Getters/Setters` simples, todas as implementações deles ficaram no `.hpp`!
 
