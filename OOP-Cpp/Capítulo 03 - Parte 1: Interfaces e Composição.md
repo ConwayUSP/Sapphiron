@@ -205,7 +205,7 @@ Main.cpp
 #include "Armadura.hpp"
 
 int main() {
-  Personagem guerreiro("Meliodas", 500);
+  Personagem guerreiro("Arthas", 500);
 
   Espada   espada("Lostvayne", 120);
   Armadura armadura("Armadura de Pégaso", 80);
